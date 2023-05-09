@@ -1,0 +1,14 @@
+<nav class="bg-gray-800 px-4 py-2 flex items-center justify-between">
+  <div class="flex items-center">
+    <img src="/logo2.png" alt="Logo" class="h-16 mr-2">
+    <span class="text-white font-semibold text-xl tracking-tight">FlyghtClub</span>
+  </div>
+  <div class="flex lg:hidden">
+    <button class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
+      <span class="text-lg">Menu</span>
+    </button>
+  </div>
+  <div class="hidden lg:flex lg:items-center">
+    <%= link_to "Connexion", new_user_session_path, class: "block mt-4 lg:inline-block lg:mt-0 text-gray-300 hover:text-white mr-4" %>
+  </div>
+</nav>
