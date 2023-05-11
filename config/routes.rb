@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'flights/destroy'
   get 'bookings/index'
   get 'bookings/show'
-  get 'bookings/new'
+  get '/:flight_number/bookings/new', to: 'bookings#new', as: 'bookings_new'
   get 'bookings/create'
   get 'bookings/edit'
   get 'bookings/update'

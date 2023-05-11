@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
   end
 
   def new
+    flight_number = params[:flight_number]
+    @flight = Flight.find_by(number: flight_number)
   end
 
   def create
