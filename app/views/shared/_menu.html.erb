@@ -1,7 +1,9 @@
 <nav class="bg-gray-800 px-4 py-2 flex items-center justify-between">
   <div class="flex items-center">
-    <img src="/logo2.png" alt="Logo" class="h-16 mr-2">
-    <span class="text-white font-semibold text-xl tracking-tight">FlyghtClub</span>
+    <%= link_to "/", class: "flex items-center" do %>
+      <%= image_tag("/logo2.png", alt: "Logo", class: "h-16 mr-2") %>
+      <span class="text-white font-semibold text-xl tracking-tight">FlyghtClub</span>
+    <% end %>
   </div>
   <div class="flex lg:hidden">
     <button class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
