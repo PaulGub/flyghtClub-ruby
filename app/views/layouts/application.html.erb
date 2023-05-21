@@ -14,7 +14,11 @@
 
   <body>
   <%= render "shared/menu" %>
-      <%= yield %>
-
+  <%= yield %>
+  <% if notice %>
+    <%= render 'shared/snackbar',
+               snackbar_additional_classes: 'bg-green-100 text-green-700 border-green-700',
+               snackbar_message: notice %>
+  <% end %>
   </body>
 </html>

@@ -1,0 +1,13 @@
+<div id="snackbar" class="transition-opacity opacity-100 fixed -translate-x-1/2 top-24 left-1/2 z-10 border py-3 px-4 rounded <%= snackbar_additional_classes %>" >
+  <%= snackbar_message %>
+</div>
+<script>
+    const snackbar = document.getElementById('snackbar');
+
+    setTimeout(() => {
+        snackbar.classList.replace('opacity-100', 'opacity-0');
+        setTimeout(() => {
+            snackbar.remove()
+        }, 150)
+    }, 3000)
+</script>

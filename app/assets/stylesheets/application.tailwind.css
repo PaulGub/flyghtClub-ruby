@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+.translate-center {
+    transform: translate(-50%, -50%);
+}
+
+.pagination {
+    @apply inline-flex items-center;
+}
+
+.pagination > a {
+    @apply block px-3 py-2 ml-0 leading-tight text-gray-400 bg-gray-800 border border-gray-700 hover:bg-gray-700 hover:text-white
+}
+
+.pagination > .previous_page {
+    @apply block px-3 py-2 ml-0 leading-tight text-gray-400 bg-gray-800 border border-gray-700 rounded-l-lg
+}
+
+.pagination > .next_page {
+    @apply block px-3 py-2 ml-0 leading-tight text-gray-400 bg-gray-800 border border-gray-700 rounded-r-lg
+}
+
+.pagination > .gap {
+    @apply block px-3 py-2 ml-0 leading-tight text-gray-400 bg-gray-800 border border-gray-700
+}
+
+.pagination > .current {
+    @apply px-3 py-2 leading-tight border text-white border-gray-700 bg-gray-700
+}
+
 /*
 
 @layer components {
