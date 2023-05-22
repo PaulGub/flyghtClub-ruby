@@ -1,4 +1,13 @@
 fr:
+  booking:
+    class_type_label: "Type de classe"
+    passenger_number_label: "Nombre de passagers"
+    class_types:
+      economy: "Économique"
+      business: "Affaires"
+    booking_button: "Réserver"
+    errors:
+      not_enough_seats: "Nombre de places disponibles insuffisant pour la classe sélectionnée"
   will_paginate:
     previous_label: "&larr; Précédent"
     next_label: "Suivant &rarr;"

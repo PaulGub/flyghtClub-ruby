@@ -30,4 +30,6 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  booking:
+    errors:
+      not_enough_seats: "Not enough available seats for the selected class type"

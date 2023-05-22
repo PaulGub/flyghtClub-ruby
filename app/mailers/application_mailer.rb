@@ -1,9 +1,11 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "postmaster@sandboxa4669d3e03134e02af57d51fb59efc9f.mailgun.org"
+  default from: "no-reply@flyght-club.com"
   layout "mailer"
 
-  def mailer(email)
+  def mailer(email, flight, booking)
     @recipient_email = email
-    mail(to: email, subject: 'Test Email from Ruby on Rails')
+    @flight = flight
+    @booking = booking
+    mail(to: email, subject: 'Réservation confirmée !')
   end
 end

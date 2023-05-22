@@ -17,4 +17,9 @@ module ApplicationHelper
   def airport_name(code)
     AIRPORT_CODES[code] || code
   end
+
+  def generate_pnr_code
+    characters = ('A'..'Z').to_a + ('0'..'9').to_a
+    characters.sample(6).join
+  end
 end

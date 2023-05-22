@@ -1,9 +1,20 @@
 <div>
-  <%= @flight.duration %>
   <div class="bg-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-lg">
     <%= render "shared/flight_details", flight: @flight %>
   </div>
 
-  <h1 class="font-bold text-4xl">Bookings#new</h1>
-  <p>Find me in app/views/bookings/new.html.erb</p>
+  <div>
+    <%= flash[:error] %>
+  </div>
+
+  <%= form_with(model: @booking, url: bookings_create_path(flight_number: @flight.number)) do |form| %>
+
+    <%= form.label :class_type, t('booking.class_type_label') %>
+    <%= form.select :class_type, options_for_select(Booking.class_types.keys.map { |key| [I18n.t("booking.class_types.#{key}"), key] }), {}, { class: "uppercase" } %>
+
+    <%= form.label :passenger_number, t('booking.passenger_number_label') %>
+    <%= form.number_field :passenger_number %>
+
+    <%= form.submit t('booking.booking_button') %>
+  <% end %>
 </div>

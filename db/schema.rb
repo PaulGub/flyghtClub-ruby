@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_09_131248) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_22_101925) do
   create_table "bookings", force: :cascade do |t|
     t.integer "class_type"
     t.integer "passenger_number"
-    t.string "code_prn"
+    t.string "code_pnr"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["code_pnr"], name: "index_bookings_on_code_pnr", unique: true
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
