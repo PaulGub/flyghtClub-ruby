@@ -10,7 +10,7 @@
   <%= form_with(model: @booking, url: bookings_create_path(flight_number: @flight.number)) do |form| %>
 
     <%= form.label :class_type, t('booking.class_type_label') %>
-    <%= form.select :class_type, options_for_select(Booking.class_types.keys.map { |key| [I18n.t("booking.class_types.#{key}"), key] }), {}, { class: "uppercase" } %>
+    <%= form.select :class_type, options_for_select(Booking.class_types.keys.map { |key| [t("booking.class_types.#{key}"), key] }), {}, { class: "uppercase" } %>
 
     <%= form.label :passenger_number, t('booking.passenger_number_label') %>
     <%= form.number_field :passenger_number %>

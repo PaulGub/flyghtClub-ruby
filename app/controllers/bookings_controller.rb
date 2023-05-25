@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
 
     if booking_validation(@flight, @booking) && @booking.save
       ApplicationMailer.mailer(current_user.email, @flight, @booking).deliver_now
-      redirect_to root_path, notice: "Booking created successfully"
+      redirect_to root_path, notice: "Booking created successfully", notice_status: 'success'
     else
       flash[:error] = @booking.errors.full_messages.join(", ")
       redirect_to bookings_new_path, flight_number: flight_number

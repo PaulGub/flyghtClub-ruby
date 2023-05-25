@@ -1,4 +1,11 @@
 fr:
+  sign_in: "Connexion"
+  sign_up: "S'inscrire"
+  flight:
+    departure_airport: "Aéroport de départ"
+    arrival_airport: "Aéroport d'arrivée"
+    departure_date: "Date de départ"
+    arrival_date: "Date d'arrivée"
   booking:
     class_type_label: "Type de classe"
     passenger_number_label: "Nombre de passagers"
