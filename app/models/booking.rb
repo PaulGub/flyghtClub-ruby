@@ -6,5 +6,9 @@ class Booking < ApplicationRecord
 
   validates :passenger_number, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 99 }
   validates :code_pnr, presence: true, uniqueness: true
-end
 
+  def self.generate_pnr_code
+    characters = ('A'..'Z').to_a + ('0'..'9').to_a
+    characters.sample(6).join
+  end
+end

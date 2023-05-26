@@ -1,12 +1,49 @@
 fr:
-  sign_in: "Connexion"
-  sign_up: "S'inscrire"
+  activerecord:
+    attributes:
+      user:
+        password: "Mot de passe"
+        password_confirmation: "Confirmation du mot de passe"
+      booking:
+        passenger_number: "Nombre de passagers"
+    models:
+      user: "utilisateur"
+    errors:
+      models:
+        booking:
+          attributes:
+            passenger_number:
+              greater_than_or_equal_to: "doit être supérieur ou égal à 1"
+              less_than_or_equal_to: "doit être inférieur ou égal à 99"
+        user:
+          attributes:
+            email:
+              blank: "est vide"
+              taken: "est déjà utilisé"
+            password:
+              blank: "est vide"
+              too_short: "est trop court, il doit faire au moins 6 caractères"
+            password_confirmation:
+              confirmation: "est différente du mot de passe précédement renseigné"
+  auth:
+    password: "Mot de passe"
+    password_confirmation: "Confirmer votre mot de passe"
+    remember_me: "Se souvenir de moi"
+    no_account: "Vous n'avez pas encore de compte ?"
+    already_have_account: "Vous avez déjà un compte ?"
+    sign_in: "Se connecter"
+    sign_up: "S'inscrire"
+    create_account: "Créer un compte"
+    forgot_password: "Mot de passe oublié ?"
+    send_reset_password: "Envoyez-moi les instructions de réinitialisation de mot de passe"
   flight:
     departure_airport: "Aéroport de départ"
     arrival_airport: "Aéroport d'arrivée"
     departure_date: "Date de départ"
     arrival_date: "Date d'arrivée"
   booking:
+    success: "Votre réservation est enregistée ! Vous allez recevoir un mail de confirmation"
+    to_access_flight_booking: "pour pouvoir réserver un vol"
     class_type_label: "Type de classe"
     passenger_number_label: "Nombre de passagers"
     class_types:
@@ -80,5 +117,5 @@ fr:
       not_found: "introuvable"
       not_locked: "n'était pas verrouillé(e)"
       not_saved:
-        one: "1 erreur a empêché cette %{resource} d'être enregistrée :"
-        other: "%{count} erreurs ont empêché cette %{resource} d'être enregistrée :"
+        one: "1 erreur a empêché cet(te) %{resource} d'être enregistrée :"
+        other: "%{count} erreurs ont empêché cet(te) %{resource} d'être enregistrée :"

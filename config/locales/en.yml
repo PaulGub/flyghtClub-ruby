@@ -1,12 +1,23 @@
 en:
-  sign_in: "Sign in"
-  sign_up: "Sign up"
+  auth:
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    remember_me: "Remember me"
+    no_account: "You don't have an account yet ?"
+    already_have_account: "You already have an account ?"
+    sign_in: "Sign in"
+    sign_up: "Sign up"
+    create_account: "Create an account"
+    forgot_password: "Forgot your password ?"
+    send_reset_password: "Send me reset password instructions"
   flight:
     departure_airport: "Departure airport"
     arrival_airport: "Arrival airport"
     departure_date: "Departure date"
     arrival_date: "Arrival date"
   booking:
+    success: "Your reservation is recorded ! You will receive a confirmation email"
+    to_access_flight_booking: "to access flight booking"
     class_type_label: "Class type"
     passenger_number_label: "Passenger number"
     class_types:

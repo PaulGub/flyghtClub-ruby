@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr" class="h-full min-h-full">
   <head>
     <title>FlyghtClub</title>
     <link rel="icon" href="/logo2.png">
@@ -12,12 +12,11 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="h-full min-h-full">
   <%= render "shared/menu" %>
   <%= yield %>
   <% if notice %>
     <%= render 'shared/snackbar',
-               snackbar_additional_classes: snackbar_class(notice_status),
                snackbar_message: notice %>
   <% end %>
   </body>

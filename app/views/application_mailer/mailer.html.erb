@@ -9,6 +9,8 @@
 
 <body>
   <h1>Réservation confirmée !</h1>
+  <p>Pour le vol :</p>
+  <%= render "shared/flight_details", flight: @flight %>
   <p>voici votre code PNR : <%= @booking.code_pnr %></p>
 </body>
 </html>

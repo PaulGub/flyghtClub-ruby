@@ -1,26 +1,35 @@
-<h2>Log in</h2>
+<div class="flex h-full-less-navbar bg-orange-100">
+  <div class="flex justify-center items-center flex-grow">
+    <div class="flex flex-col p-8 gap-8 shadow-lg rounded-lg bg-white md:min-w-[500px]">
+      <div>
+        <h1 class="text-2xl font-bold mb-4"><%= t('auth.sign_in') %></h1>
+        <p class="text-gray-400"><%= t('booking.to_access_flight_booking') %></p>
+      </div>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "flex flex-col gap-8" }) do |f| %>
+        <div class="relative">
+          <%= f.email_field :email, autocomplete: "email", placeholder: " ", class: "block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" %>
+          <%= f.label :email, class: "absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+        <div class="relative">
+          <%= f.password_field :password, autocomplete: "current-password",  placeholder: " ", class: "block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-blue-600 peer" %>
+          <%= f.label :password, t('auth.password'), class: "absolute text-sm text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1" %>
+        </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+        <% if devise_mapping.rememberable? %>
+          <div class="flex items-center">
+            <%= f.check_box :remember_me, class: "w-6 h-6 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2" %>
+            <%= f.label :remember_me, t('auth.remember_me'), class: "ml-2 text-sm font-medium text-gray-900" %>
+          </div>
+        <% end %>
+
+        <%= f.submit t('auth.sign_in'), class: "block cursor-pointer text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" %>
+    <% end %>
+
+      <div class="flex flex-col gap-2">
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit t('sign_in') %>
   </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

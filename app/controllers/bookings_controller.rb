@@ -17,7 +17,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.code_pnr = helpers.generate_pnr_code
+    @booking.code_pnr = Booking.generate_pnr_code
     @booking.user = current_user
 
     flight_number = params[:flight_number]
@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
 
     if booking_validation(@flight, @booking) && @booking.save
       ApplicationMailer.mailer(current_user.email, @flight, @booking).deliver_now
-      redirect_to root_path, notice: "Booking created successfully", notice_status: 'success'
+      redirect_to root_path, notice: t('booking.success')
     else
       flash[:error] = @booking.errors.full_messages.join(", ")
       redirect_to bookings_new_path, flight_number: flight_number
@@ -39,7 +39,7 @@ class BookingsController < ApplicationController
     available_seats = booking.economy? ? flight.economy_class_seats : flight.business_class_seats
 
     if class_type_seat_count + booking.passenger_number > available_seats
-      booking.errors.add(:base, I18n.t('booking.errors.not_enough_seats'))
+      booking.errors.add(:base, t('booking.errors.not_enough_seats'))
       return false
     end
 
