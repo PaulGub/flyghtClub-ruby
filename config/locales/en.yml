@@ -7,6 +7,7 @@ en:
     already_have_account: "You already have an account ?"
     sign_in: "Sign in"
     sign_up: "Sign up"
+    sign_out: "Sign out"
     create_account: "Create an account"
     forgot_password: "Forgot your password ?"
     send_reset_password: "Send me reset password instructions"

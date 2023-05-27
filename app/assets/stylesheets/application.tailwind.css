@@ -6,10 +6,6 @@
     transform: translate(-50%, -50%);
 }
 
-.h-full-less-navbar {
-    height: calc(100% - 80px);
-}
-
 .pagination {
     @apply inline-flex items-center;
 }

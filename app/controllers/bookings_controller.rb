@@ -8,7 +8,7 @@ class BookingsController < ApplicationController
   def new
     flight_number = params[:flight_number]
     @flight = Flight.find_by(number: flight_number)
-    if @flight.departure_date > DateTime.current.in_time_zone("UTC")
+    if user_signed_in? && @flight.departure_date > DateTime.current.in_time_zone("UTC")
       @booking = Booking.new
     else
       redirect_to root_path
@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
     @flight = Flight.find_by(number: flight_number)
     @booking.flights << @flight
 
-    if booking_validation(@flight, @booking) && @booking.save
+    if user_signed_in? && booking_validation(@flight, @booking) && @booking.save
       ApplicationMailer.mailer(current_user.email, @flight, @booking).deliver_now
       redirect_to root_path, notice: t('booking.success')
     else
