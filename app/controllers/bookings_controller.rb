@@ -1,6 +1,9 @@
 class BookingsController < ApplicationController
   def index
+    @current_bookings = current_user.bookings.joins(:flights).where('flights.departure_date >= ?', Time.zone.now)
+    @past_bookings = current_user.bookings.joins(:flights).where('flights.departure_date < ?', Time.zone.now)
   end
+
 
   def show
   end
@@ -55,7 +58,11 @@ class BookingsController < ApplicationController
 
   def update
   end
-
   def destroy
+    booking = Booking.find(params[:id])
+    booking.destroy
+
+    redirect_to bookings_index_path, notice: 'Réservation supprimée avec succès.'
   end
+
 end

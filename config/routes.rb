@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   get 'flights/edit'
   get 'flights/update'
   get 'flights/destroy'
-  get 'bookings/index'
+  get 'bookings/index', to: 'bookings#index', as: 'bookings_index'
   get 'bookings/show'
   get '/:flight_number/bookings/new', to: 'bookings#new', as: 'bookings_new'
   post '/:flight_number/bookings/create', to: 'bookings#create', as: 'bookings_create'
   get 'bookings/edit'
   get 'bookings/update'
-  get 'bookings/destroy'
+  delete 'bookings/destroy/:id', to: 'bookings#destroy', as:'bookings_destroy'
   devise_for :users, controllers: {
     sessions: 'users/sessions'
   }

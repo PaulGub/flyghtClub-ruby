@@ -43,6 +43,7 @@ fr:
     departure_date: "Date de départ"
     arrival_date: "Date d'arrivée"
   booking:
+    label: "Mes réservations"
     success: "Votre réservation est enregistée ! Vous allez recevoir un mail de confirmation"
     to_access_flight_booking: "pour pouvoir réserver un vol"
     class_type_label: "Type de classe"

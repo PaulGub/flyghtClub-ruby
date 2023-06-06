@@ -23,4 +23,9 @@ class Flight < ApplicationRecord
   def self.airport_name(code)
     AIRPORT_CODES[code] || code
   end
+
+  def self.arrival_date(departure_date,duration)
+    departure_date+duration.minutes
+  end
+
 end
