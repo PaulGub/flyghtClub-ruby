@@ -21,6 +21,8 @@ en:
     business_available_seats: "Available business seats"
     past_flights: "Past flights"
     next_flights: "Next flights"
+    no_past_flights: "No past flights"
+    no_next_flights: "No next flights"
   booking:
     label: "My bookings"
     book_flight_seats: "Book your seats !"

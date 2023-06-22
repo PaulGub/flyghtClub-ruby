@@ -52,6 +52,8 @@ fr:
     business_available_seats: "Places restantes en affaires"
     past_flights: "Vols passés"
     next_flights: "Vols à venir"
+    no_past_flights: "Aucun vol passés"
+    no_next_flights: "Aucun vol à venir"
   booking:
     label: "Mes réservations"
     book_flight_seats: "Réserver vos places !"

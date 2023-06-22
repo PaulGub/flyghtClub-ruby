@@ -2,9 +2,17 @@
   <h1 class="text-slate-900 text-3xl font-bold"><%= t('booking.label') %></h1>
   <div class="flex flex-col w-[1000px] bg-white shadow-lg rounded-lg my-8 px-8 py-6 gap-6">
     <h2 class="text-slate-900 text-2xl font-bold"><%= t('flight.next_flights') %></h2>
-    <%= render 'shared/booking_details', bookings: @current_bookings, can_cancel: true %>
+    <% if @current_bookings.length === 0 %>
+      <p class="text-gray-500 text-center"><%= t('flight.no_next_flights') %></p>
+    <% else %>
+      <%= render 'shared/booking_details', bookings: @current_bookings, can_cancel: true %>
+    <% end %>
     <hr class="my-8"/>
     <h2 class="text-slate-900 text-2xl font-bold"><%= t('flight.past_flights') %></h2>
-    <%= render 'shared/booking_details', bookings: @past_bookings, can_cancel: false %>
+    <% if @past_bookings.length === 0 %>
+      <p class="text-gray-500 text-center"><%= t('flight.no_past_flights') %></p>
+    <% else %>
+      <%= render 'shared/booking_details', bookings: @past_bookings, can_cancel: false %>
+    <% end %>
   </div>
 </div>
