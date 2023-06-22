@@ -1,24 +1,12 @@
-<div class="container mx-auto my-8">
-  <div class="bg-white shadow-md rounded-lg px-8 py-6 mb-4">
-    <h1 class="text-2xl font-bold mb-8">Vols</h1>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-8">
+<div class="flex justify-center flex-grow bg-orange-100 py-8">
+  <div class="flex flex-col w-[1000px] bg-white shadow-lg rounded-lg my-8 px-8 py-6 gap-6">
+    <h1 class="text-slate-900 text-2xl font-bold"><%= t('flight.flights') %></h1>
+    <div class="flex flex-col gap-8">
       <% @flights.each do |flight| %>
-        <div class="bg-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-lg">
-          <div class="px-6 py-4">
-            <%= render "shared/flight_details", flight: flight %>
-
-            <div class="flex justify-center">
-              <% if user_signed_in? %>
-                <%= link_to t('booking.booking_button'), bookings_new_path(flight_number: flight.number), class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
-              <% else %>
-                <%= link_to t('booking.booking_button'), new_user_session_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
-              <% end %>
-            </div>
-          </div>
-        </div>
+        <%= render "shared/flight_item", flight: flight %>
       <% end %>
     </div>
-    <div class="flex justify-center p-6">
+    <div class="flex justify-center p-4">
       <%= will_paginate @flights %>
     </div>
   </div>

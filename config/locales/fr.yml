@@ -1,4 +1,9 @@
 fr:
+  date:
+    day_names: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
+    month_names: [~, "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"]
+    formats:
+      full: "%A %e %B %Y"
   activerecord:
     attributes:
       user:
@@ -38,22 +43,31 @@ fr:
     forgot_password: "Mot de passe oublié ?"
     send_reset_password: "Envoyez-moi les instructions de réinitialisation de mot de passe"
   flight:
+    flights: "Vols"
     departure_airport: "Aéroport de départ"
     arrival_airport: "Aéroport d'arrivée"
     departure_date: "Date de départ"
     arrival_date: "Date d'arrivée"
+    economy_available_seats: "Places restantes en économique"
+    business_available_seats: "Places restantes en affaires"
+    past_flights: "Vols passés"
+    next_flights: "Vols à venir"
   booking:
     label: "Mes réservations"
+    book_flight_seats: "Réserver vos places !"
+    cancel: "Annuler ma réservation"
     success: "Votre réservation est enregistée ! Vous allez recevoir un mail de confirmation"
     to_access_flight_booking: "pour pouvoir réserver un vol"
     class_type_label: "Type de classe"
     passenger_number_label: "Nombre de passagers"
+    seats_booked: "Place(s) réservée(s)"
     class_types:
       economy: "Économique"
       business: "Affaires"
     booking_button: "Réserver"
     errors:
       not_enough_seats: "Nombre de places disponibles insuffisant pour la classe sélectionnée"
+      bad_passenger_number: "Nombre de passagers incorrect (doit être compris entre 1 et 99)"
   will_paginate:
     previous_label: "&larr; Précédent"
     next_label: "Suivant &rarr;"

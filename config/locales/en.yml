@@ -12,18 +12,28 @@ en:
     forgot_password: "Forgot your password ?"
     send_reset_password: "Send me reset password instructions"
   flight:
+    flights: "Flights"
     departure_airport: "Departure airport"
     arrival_airport: "Arrival airport"
     departure_date: "Departure date"
     arrival_date: "Arrival date"
+    economy_available_seats: "Available economy seats"
+    business_available_seats: "Available business seats"
+    past_flights: "Past flights"
+    next_flights: "Next flights"
   booking:
+    label: "My bookings"
+    book_flight_seats: "Book your seats !"
+    cancel: "Cancel booking"
     success: "Your reservation is recorded ! You will receive a confirmation email"
     to_access_flight_booking: "to access flight booking"
     class_type_label: "Class type"
     passenger_number_label: "Passenger number"
+    seats_booked: "Seats booked"
     class_types:
       economy: "Economy"
       business: "Business"
     booking_button: "Book"
     errors:
       not_enough_seats: "Not enough available seats for the selected class type"
+      bad_passenger_number: "Incorrect passenger number (must be between 1 and 99)"

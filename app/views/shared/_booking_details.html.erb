@@ -1,0 +1,46 @@
+<div class="flex flex-col gap-4">
+  <% bookings.each do |booking| %>
+    <% booking.flights.each_with_index do |flight| %>
+      <div class="flex justify-between items-center bg-white text-slate-900 p-6 rounded-lg overflow-hidden drop-shadow-lg hover:drop-shadow-xl">
+        <div>
+          <div class="flex items-center gap-2 pl-2 pb-4">
+            <span class="text-xs px-2 py-1 rounded-full bg-blue-100 text-blue-700">N°<%= flight.number %></span>
+            <% if flight.departure_date.day === Flight.arrival_date(flight.departure_date, flight.duration).day %>
+              <p><%= l flight.departure_date.to_date, :format => :full %></p>
+            <% else %>
+              <p><%= l flight.departure_date.to_date, :format => :full %> - <%= l Flight.arrival_date(flight.departure_date, flight.duration).to_date, :format => :full %></p>
+            <% end %>
+          </div>
+          <ol class="relative">
+            <li class="relative pl-24 pb-16">
+              <span class="absolute left-2.5 font-bold"><%= flight.departure_date.strftime("%H:%M") %></span>
+              <p class="text-blue-900"><span class="font-bold"><%= Flight.airport_name(flight.departure_airport) %></span> (<%= flight.departure_airport %>)</p>
+            </li>
+            <li class="Time absolute flex items-center gap-1 text-sm top-12 left-24">
+              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>
+              <%= Flight.duration_to_human_readable(flight.duration) %>
+            </li>
+            <li class="relative pl-24">
+              <span class="absolute left-2.5 font-bold"><%= Flight.arrival_date(flight.departure_date, flight.duration).strftime("%H:%M") %></span>
+              <p class="text-blue-900"><span class="font-bold"><%= Flight.airport_name(flight.arrival_airport) %></span> (<%= flight.arrival_airport %>)</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <div class="flex flex-col gap-2">
+            <p class="text-xs px-4 py-2 rounded-full text-orange-700 bg-orange-100 font-bold uppercase">
+              <%= t("booking.class_types.#{booking.class_type}") %>
+            </p>
+            <p class="text-xs px-4 py-2 rounded-full text-blue-700 bg-blue-100">
+              <span class="font-bold"><%= booking.passenger_number %></span> <%= t('booking.seats_booked') %>
+            </p>
+          </div>
+          <% if can_cancel %>
+            <%= button_to t('booking.cancel'), bookings_destroy_path(id: booking.id), method: :delete, class: "w-full text-center text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800" %>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

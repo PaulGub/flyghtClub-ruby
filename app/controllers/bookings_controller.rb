@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
-    @current_bookings = current_user.bookings.joins(:flights).where('flights.departure_date >= ?', Time.zone.now)
-    @past_bookings = current_user.bookings.joins(:flights).where('flights.departure_date < ?', Time.zone.now)
+    @current_bookings = current_user.bookings.joins(:flights).where('flights.departure_date >= ?', Time.zone.now).order('flights.departure_date DESC')
+    @past_bookings = current_user.bookings.joins(:flights).where('flights.departure_date < ?', Time.zone.now).order('flights.departure_date DESC')
   end
 
 
@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
 
     if user_signed_in? && booking_validation(@flight, @booking) && @booking.save
       ApplicationMailer.mailer(current_user.email, @flight, @booking).deliver_now
-      redirect_to root_path, notice: t('booking.success')
+      redirect_to bookings_index_path, notice: t('booking.success')
     else
       flash[:error] = @booking.errors.full_messages.join(", ")
       redirect_to bookings_new_path, flight_number: flight_number
@@ -40,6 +40,11 @@ class BookingsController < ApplicationController
     class_type = booking.class_type
     class_type_seat_count = flight.bookings.where(class_type: class_type).sum(:passenger_number)
     available_seats = booking.economy? ? flight.economy_class_seats : flight.business_class_seats
+
+    if booking.passenger_number === nil
+      booking.errors.add(:base, t('booking.errors.bad_passenger_number'))
+      return false
+    end
 
     if class_type_seat_count + booking.passenger_number > available_seats
       booking.errors.add(:base, t('booking.errors.not_enough_seats'))

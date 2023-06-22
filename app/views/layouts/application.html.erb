@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="h-full min-h-full">
+<html lang="fr" class="flex flex-col min-h-full">
   <head>
     <title>FlyghtClub</title>
     <link rel="icon" href="/logo2.png">
@@ -12,14 +12,15 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="h-full min-h-full flex flex-col">
-  <%= render "shared/menu" %>
-  <%= yield %>
-  <% if notice %>
-    <%= render 'shared/snackbar',
-               snackbar_message: notice %>
-  <% end %>
-  <%= javascript_include_tag 'snackbar' %>
-  <%= javascript_include_tag 'password' %>
+  <body class="relative min-h-full flex flex-col flex-grow">
+    <%= render "shared/menu" %>
+    <%= yield %>
+    <% if notice %>
+      <%= render 'shared/snackbar',
+                 snackbar_message: notice %>
+    <% end %>
+    <%= javascript_include_tag 'snackbar' %>
+    <%= javascript_include_tag 'password' %>
+    <%= javascript_include_tag 'modal' %>
   </body>
 </html>
