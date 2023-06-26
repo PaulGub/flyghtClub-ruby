@@ -21,11 +21,6 @@ Lancer l'application (important pour lancer le build Tailwind) :
 
 ## Retour d’expérience sur le projet
 
-Le sujet était cool a traité, avec pas mal de fonctionnalités différentes et 
-intérésantes à implémenter notament l'envoie de mail qu'on ne fait pas souvent lors des projets.
+Le sujet était intéressant à traiter, offrant de nombreuses fonctionnalités différentes et captivantes à implémenter, notamment l'envoi de courriers électroniques, une tâche que l'on ne réalise pas souvent lors de projets.
 
-En ce qui concerne Ruby on Rails, on a trouvé le framework assez simple à utiliser.
-Le framework simplifie vraiment le développement avec pas mal de fonction "pré-faite".
-Néanmoins la gestion de l'interaction avec l'utilisateur côté client, avec Javascript notamment est assez compliqué. 
-Mais Ruby on Rails étant un framework server-side un peu comme PHP c'est plutôt normal.
-
+En ce qui concerne Ruby on Rails, nous avons trouvé ce framework assez simple à utiliser. Il simplifie réellement le développement en offrant de nombreuses fonctionnalités préconçues. Néanmoins, la gestion de l'interaction avec l'utilisateur côté client, notamment avec Javascript, peut être assez complexe. Cependant, étant donné que Ruby on Rails est un framework côté serveur, un peu comme PHP, cela est plutôt normal.
